@@ -1,28 +1,43 @@
-// Défilement horizontal minimaliste avec logos monochromes gris clair
 const sponsors = [
-  { name: "Cour d’Appel d’Abidjan", logo: "/images/sponsors/cour-appel.png" },
-  { name: "Ministère de la Justice", logo: "/images/sponsors/ministere-justice.png" },
-  { name: "Cabinet Côte d’Ivoire Conseil", logo: "/images/sponsors/cic-conseil.png" },
-  { name: "Université Félix Houphouët-Boigny", logo: "/images/sponsors/ufhb.png" },
-  { name: "Ordre des Avocats", logo: "/images/sponsors/ordre-avocats.png" },
+  "Cour d’Appel d’Abidjan",
+  "Ministère de la Justice",
+  "Cabinet Côte d’Ivoire Conseil",
+  "Université Félix Houphouët-Boigny",
+  "Ordre des Avocats",
+  "Barreau de Côte d’Ivoire",
+  "Chambre de Commerce",
+  "Agence OHADA",
 ];
 
 export default function SponsorsCarousel() {
+  // Dupliquer pour l'effet infini
+  const items = [...sponsors, ...sponsors];
+
   return (
-    <section className="py-16 bg-white border-t border-gray-100">
+    <section className="relative bg-white pt-16 pb-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-sm text-gray-400 uppercase tracking-[0.2em] mb-8">
-          Ils nous font confiance
-        </p>
-        <div className="flex overflow-x-auto gap-8 items-center justify-start md:justify-center pb-4">
-          {sponsors.map((s) => (
-            <div
-              key={s.name}
-              className="flex-shrink-0 h-12 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
-            >
-              <img src={s.logo} alt={s.name} className="h-full w-auto" />
-            </div>
-          ))}
+        {/* Filet doré + titre */}
+        <div className="text-center mb-12">
+          <div className="w-12 h-0.5 bg-gold mx-auto mb-4" />
+          <p className="text-sm text-gray-400 uppercase tracking-[0.3em] font-medium">
+            Ils nous font confiance
+          </p>
+        </div>
+
+        {/* Carrousel infini */}
+        <div className="relative overflow-hidden">
+          <div className="carousel-track space-x-8">
+            {items.map((name, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 border-2 border-gray-100 bg-white px-10 py-6 text-center transition-all duration-500 hover:border-gold hover:shadow-sharp group"
+              >
+                <span className="font-display text-lg text-gray-600 group-hover:text-royal transition-colors duration-300 whitespace-nowrap">
+                  {name}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

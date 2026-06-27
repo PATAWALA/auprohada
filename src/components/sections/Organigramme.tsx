@@ -1,44 +1,47 @@
-import Card from "../ui/Card";
-
 const bureau = [
   {
     name: "KOUAME Roméo",
     role: "Président National",
-    image: "/images/team/president-kuame-romeo.jpg",
+    image: "/images/team/president-kuame-romeo.jpg", // photo locale conservée
     description:
       "Porte la vision stratégique de l’association et assure la représentation institutionnelle.",
   },
   {
     name: "YEO Kader",
-    role: "Vice-Président chargé des Affaires Scientifiques",
-    image: "/images/team/vp-scientifique.jpg",
+    role: "Vice‑Président Scientifique",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80",
     description:
       "Supervise les conférences, colloques et publications académiques.",
   },
   {
     name: "TRAORE Aminata",
     role: "Secrétaire Générale",
-    image: "/images/team/secretaire-general.jpg",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=400&q=80",
     description:
-      "Coordonne l’administration, les procès-verbaux et la communication interne.",
+      "Coordonne l’administration, les procès‑verbaux et la communication interne.",
   },
   {
     name: "BAMBA Souleymane",
     role: "Trésorier Général",
-    image: "/images/team/tresorier.jpg",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=400&q=80",
     description: "Gère les finances, les levées de fonds et les partenariats.",
   },
   {
     name: "KONE Fatoumata",
-    role: "Chargée de l’Organisation et des Événements",
-    image: "/images/team/chargee-organisation.jpg",
+    role: "Chargée de l’Organisation",
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&h=400&q=80",
     description:
       "Pilote la logistique des manifestations et la coordination des clubs.",
   },
   {
     name: "SORO Drissa",
-    role: "Chargé de la Communication et des Médias",
-    image: "/images/team/charge-communication.jpg",
+    role: "Chargé de la Communication",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=80",
     description:
       "Anime les réseaux sociaux, les relations presse et la stratégie numérique.",
   },
@@ -46,26 +49,32 @@ const bureau = [
 
 export default function Organigramme() {
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
       {bureau.map((member, idx) => (
-        <Card key={idx} className="text-center hover:border-royal transition-colors duration-300">
-          <div className="w-24 h-24 mx-auto overflow-hidden border-2 border-gray-200">
+        <div key={idx} className="group flex flex-col items-start">
+          {/* Photo carrée */}
+          <div className="w-full aspect-square overflow-hidden border-2 border-gray-200 group-hover:border-gold transition-colors duration-500 mb-5">
             <img
               src={member.image}
               alt={member.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
             />
           </div>
-          <h3 className="mt-5 font-display text-lg font-bold text-premium-dark">
+          {/* Filet doré */}
+          <div className="w-8 h-0.5 bg-gold mb-3" />
+          {/* Nom */}
+          <h3 className="font-display text-xl font-bold text-royal group-hover:text-gold transition-colors leading-tight">
             {member.name}
           </h3>
-          <p className="text-gold font-semibold text-sm uppercase tracking-wider mt-1">
+          {/* Rôle */}
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mt-1">
             {member.role}
           </p>
-          <p className="text-gray-600 text-sm mt-3 leading-relaxed">
+          {/* Description */}
+          <p className="mt-3 text-gray-600 text-sm leading-relaxed">
             {member.description}
           </p>
-        </Card>
+        </div>
       ))}
     </div>
   );

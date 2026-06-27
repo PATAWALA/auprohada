@@ -3,6 +3,7 @@ import SponsorsCarousel from "@/components/sections/SponsorsCarousel";
 import KeyFigures from "@/components/sections/KeyFigures";
 import PresidentWord from "@/components/sections/PresidentWord";
 import NewsPreview from "@/components/sections/NewsPreview";
+import CTABanner from "@/components/sections/CTABanner"; // ← ajout
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <KeyFigures />
       <PresidentWord />
       <NewsPreview />
+      <CTABanner />   {/* ← ici */}
     </>
   );
 }

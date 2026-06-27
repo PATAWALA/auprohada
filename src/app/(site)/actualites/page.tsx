@@ -3,7 +3,7 @@ import NewsGrid from "@/components/sections/NewsGrid";
 
 export default function ActualitesPage() {
   return (
-    <main className="py-24 bg-white">
+    <main className="pt-12 md:pt-16 pb-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           overline="Actualités & Médiathèque"
