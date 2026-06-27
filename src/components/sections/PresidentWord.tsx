@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "../ui/Button";
 
 export default function PresidentWord() {
@@ -6,38 +7,37 @@ export default function PresidentWord() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
           {/* Photo officielle */}
-          <div>
-            <img
+          <div className="relative w-full h-[400px] md:h-[500px]">
+            <Image
               src="/images/team/president-kuame-romeo.jpg"
               alt="Président KOUAME Roméo"
-              className="w-full h-auto object-cover"
-              style={{
-                filter: "grayscale(100%) contrast(1.05) brightness(0.98)",
-              }}
+              fill
+              className="object-cover"
+              style={{ filter: "grayscale(100%) contrast(1.05) brightness(0.98)" }}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
             />
           </div>
 
           {/* Texte + CTA */}
           <div>
-            {/* Filet doré */}
             <div className="w-12 h-0.5 bg-gold mb-6" />
 
-            <blockquote className="font-display text-xl md:text-2xl lg:text-3xl font-medium text-premium-dark leading-tight">
+            <blockquote className="font-display text-lg md:text-xl font-medium text-premium-dark leading-tight">
               «&nbsp;L’AUPROHADA est née d’une conviction&nbsp;: celle que la
               jeunesse universitaire est le fer de lance de l’intégration
               juridique africaine.&nbsp;»
             </blockquote>
 
-            <p className="mt-5 text-base md:text-lg text-gray-600 leading-relaxed max-w-xl">
+            <p className="mt-4 text-sm md:text-base text-gray-600 leading-relaxed max-w-xl">
               Chaque étudiant sensibilisé au Traité OHADA devient un ambassadeur
               de l’État de droit et du climat des affaires sur notre continent.
               Nous bâtissons ensemble une génération de juristes capables de
               porter haut les couleurs de l’Afrique.
             </p>
 
-            {/* Signature */}
-            <div className="mt-6">
-              <p className="font-display text-lg font-bold text-royal">
+            <div className="mt-5">
+              <p className="font-display text-base font-bold text-royal">
                 KOUAME Roméo
               </p>
               <p className="text-sm text-gray-500 uppercase tracking-[0.2em] mt-1">
@@ -45,9 +45,8 @@ export default function PresidentWord() {
               </p>
             </div>
 
-            {/* CTA */}
-            <div className="mt-8">
-              <Button variant="gold" size="lg" href="/evenements">
+            <div className="mt-6">
+              <Button variant="gold" size="md" href="/evenements">
                 Participer au prochain webinaire
               </Button>
             </div>

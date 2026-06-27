@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import Button from "../ui/Button";
 
 const BACKGROUND_IMAGE =
@@ -6,18 +8,19 @@ const BACKGROUND_IMAGE =
 export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Image de fond */}
-      <img
+      {/* Image de fond avec next/image */}
+      <Image
         src={BACKGROUND_IMAGE}
         alt=""
-        className="absolute inset-0 w-full h-full object-cover"
+        fill
+        className="absolute inset-0 object-cover"
+        priority
       />
-      {/* Overlay sombre uniforme – meilleure lisibilité */}
+      {/* Overlay sombre */}
       <div className="absolute inset-0 bg-black/65" />
 
       {/* Contenu */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Filet doré */}
         <div className="w-16 h-1 bg-gold mx-auto mb-8" />
 
         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-none tracking-tight">
@@ -42,7 +45,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Séparateur angulaire minimaliste */}
+      {/* Séparateur SVG */}
       <div className="absolute bottom-0 left-0 w-full z-10">
         <svg
           viewBox="0 0 1440 60"
