@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette institutionnelle */
+  --color-royal: #2563EB;
+  --color-royal-50: #EFF6FF;
+  --color-royal-100: #DBEAFE;
+  --color-royal-200: #BFDBFE;
+  --color-royal-300: #93C5FD;
+  --color-royal-400: #60A5FA;
+  --color-royal-500: #3B82F6;
+  --color-royal-600: #2563EB;
+  --color-royal-700: #1D4ED8;
+  --color-royal-800: #1E40AF;
+  --color-royal-900: #1E3A8A;
+
+  --color-gold: #EAB308;
+  --color-gold-50: #FFFBEB;
+  --color-gold-100: #FEF3C7;
+  --color-gold-200: #FDE68A;
+  --color-gold-300: #FCD34D;
+  --color-gold-400: #FBBF24;
+  --color-gold-500: #EAB308;
+  --color-gold-600: #CA8A04;
+  --color-gold-700: #A16207;
+  --color-gold-800: #854D0E;
+  --color-gold-900: #713F12;
+
+  --color-premium-light: #F8F9FA;
+  --color-premium-white: #FFFFFF;
+  --color-premium-dark: #111827;
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-poppins), system-ui, sans-serif;
+
+  /* Annulation totale des arrondis */
+  --radius-none: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-full: 0px;
+}
