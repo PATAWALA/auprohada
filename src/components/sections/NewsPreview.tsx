@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import Button from "../ui/Button";
+
 
 // Mêmes données que NewsGrid (à terme, elles viendront de Supabase)
 const allNews = [
@@ -98,12 +99,14 @@ export default function NewsPreview() {
             >
               {/* Image */}
               <div className="relative w-full h-48 overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
-                />
-              </div>
+  <Image
+    src={item.image}
+    alt={item.title}
+    fill
+    className="object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+    sizes="(max-width: 768px) 100vw, 33vw"
+  />
+</div>
 
               {/* Contenu */}
               <div className="p-6 flex flex-col flex-grow">

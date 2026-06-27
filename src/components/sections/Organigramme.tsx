@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const bureau = [
   {
     name: "KOUAME Roméo",
@@ -52,14 +54,15 @@ export default function Organigramme() {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
       {bureau.map((member, idx) => (
         <div key={idx} className="group flex flex-col items-start">
-          {/* Photo carrée */}
-          <div className="w-full aspect-square overflow-hidden border-2 border-gray-200 group-hover:border-gold transition-colors duration-500 mb-5">
-            <img
-              src={member.image}
-              alt={member.name}
-              className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
-            />
-          </div>
+          <div className="relative w-full aspect-square overflow-hidden border-2 border-gray-200 group-hover:border-gold transition-colors duration-500 mb-5">
+  <Image
+    src={member.image}
+    alt={member.name}
+    fill
+    className="object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+  />
+</div>
           {/* Filet doré */}
           <div className="w-8 h-0.5 bg-gold mb-3" />
           {/* Nom */}

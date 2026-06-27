@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 // Images réelles depuis Unsplash, libres de droits
@@ -104,12 +105,14 @@ export default function NewsGrid() {
           >
             {/* Vignette carrée */}
             <div className="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0 overflow-hidden border-2 border-gray-200 group-hover:border-royal transition-colors duration-500">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
-              />
-            </div>
+  <Image
+    src={item.image}
+    alt={item.title}
+    fill
+    className="object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+    sizes="(max-width: 768px) 64px, 80px"
+  />
+</div>
 
             {/* Contenu texte */}
             <div className="pr-8 md:pr-12">
