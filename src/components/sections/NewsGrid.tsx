@@ -43,7 +43,7 @@ const allNews = [
       "La Semaine OHADA 2026 s’est achevée par une cérémonie solennelle.",
     year: 2026,
     image:
-      "/images/lancement.jpg",
+      "/images/certificat.jpg",
     category: "Cérémonie",
   },
   {
@@ -63,7 +63,7 @@ const allNews = [
       "Les équipes de l’AUPROHADA ont sillonné les universités de Bouaké, Daloa et Korhogo.",
     year: 2025,
     image:
-      "https://images.unsplash.com/photo-1523050854058-8df90910b4b5?auto=format&fit=crop&w=400&h=400&q=80",
+      "/images/senssibilisation.jpg",
     category: "Vie associative",
   },
 ];

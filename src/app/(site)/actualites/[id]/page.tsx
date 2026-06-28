@@ -13,7 +13,7 @@ const allNews = [
       <p>La cérémonie a été suivie d’une conférence inaugurale sur le thème : « L’OHADA, moteur de l’intégration économique africaine ».</p>
     `,
     year: 2026,
-    image: "https://picsum.photos/seed/ohada1/800/400",
+    image: "/images/lancement.jpg",
     category: "Événement",
   },
   {
@@ -26,7 +26,7 @@ const allNews = [
       <p>Parmi les intervenants figuraient des magistrats de la Cour d’Appel d’Abidjan, des avocats spécialisés en droit OHADA et des universitaires de renom.</p>
     `,
     year: 2026,
-    image: "https://picsum.photos/seed/ohada2/800/400",
+    image: "/images/logo.jpg",
     category: "Conférence",
   },
   {
@@ -39,7 +39,7 @@ const allNews = [
       <p>Cet atelier a permis aux participants de manipuler concrètement les outils juridiques qui régissent le droit des affaires dans l’espace OHADA.</p>
     `,
     year: 2026,
-    image: "https://picsum.photos/seed/ohada3/800/400",
+    image: "/images/atelier.jpg",
     category: "Formation",
   },
   {
@@ -52,7 +52,7 @@ const allNews = [
       <p>Cette soirée a également été l’occasion de récompenser les meilleurs étudiants ayant participé aux différentes activités de la semaine.</p>
     `,
     year: 2026,
-    image: "https://picsum.photos/seed/ohada4/800/400",
+    image: "/images/certificat.jpg",
     category: "Cérémonie",
   },
   {
@@ -78,7 +78,7 @@ const allNews = [
       <p>Des centaines d’étudiants ont été sensibilisés au droit OHADA et aux opportunités qu’il offre pour leur future carrière juridique.</p>
     `,
     year: 2025,
-    image: "https://picsum.photos/seed/ohada6/800/400",
+    image: "/images/senssibilisation.jpg",
     category: "Vie associative",
   },
 ];
