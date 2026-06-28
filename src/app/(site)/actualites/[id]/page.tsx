@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 
-// Mêmes données que NewsGrid et NewsPreview (à terme, elles viendront de Supabase)
 const allNews = [
   {
     id: 1,
@@ -19,7 +18,7 @@ const allNews = [
   {
     id: 2,
     title: "Conférence inaugurale : « L’OHADA, moteur de l’intégration économique »",
-    excerpt: "Un panel de haut niveau a exploré les défis et opportunités…",
+    excerpt: "Un panel de haut niveau a exploré les défis…",
     content: `
       <p>Le 13 mars 2026, un panel de haut niveau a exploré les défis et opportunités du droit des affaires harmonisé en Afrique. Les discussions ont porté sur la compétitivité des entreprises, la sécurité juridique et la facilitation des échanges intra-africains.</p>
       <p>Parmi les intervenants figuraient des magistrats de la Cour d’Appel d’Abidjan, des avocats spécialisés en droit OHADA et des universitaires de renom.</p>
@@ -31,7 +30,7 @@ const allNews = [
   {
     id: 3,
     title: "Atelier pratique de rédaction d’actes uniformes OHADA",
-    excerpt: "Plus de 200 étudiants ont participé à cet atelier…",
+    excerpt: "Plus de 200 étudiants ont participé…",
     content: `
       <p>Le 14 mars 2026, plus de 200 étudiants ont participé à un atelier pratique de rédaction d’actes uniformes OHADA. Encadrés par des magistrats et avocats spécialisés, ils ont pu se familiariser avec les techniques de rédaction des actes de procédure et des contrats commerciaux.</p>
     `,
@@ -74,7 +73,6 @@ const allNews = [
   },
 ];
 
-// Version synchrone – aucun async, aucun Promise
 export default function ActualiteDetailPage({
   params,
 }: {
