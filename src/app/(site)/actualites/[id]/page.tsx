@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Button from "@/components/ui/Button";
 
 const allNews = [
@@ -26,7 +27,7 @@ const allNews = [
       <p>Parmi les intervenants figuraient des magistrats de la Cour d’Appel d’Abidjan, des avocats spécialisés en droit OHADA et des universitaires de renom.</p>
     `,
     year: 2026,
-    image: "/images/logo.jpg",
+    image: "/images/logo.jpg", // vous pourrez changer pour une image dédiée plus tard
     category: "Conférence",
   },
   {
@@ -65,7 +66,7 @@ const allNews = [
       <p>Ce protocole prévoit notamment l’organisation conjointe de conférences, de séminaires et de programmes de formation à destination des étudiants.</p>
     `,
     year: 2025,
-    image: "https://picsum.photos/seed/ohada5/800/400",
+    image: "/images/partenariat.jpg", // ajoutez cette image si possible, sinon remplacez par une autre locale
     category: "Institutionnel",
   },
   {
@@ -108,9 +109,9 @@ export default function ActualiteDetailPage({ params }: { params: { id: string }
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Fil d’Ariane */}
         <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
-          <a href="/actualites" className="hover:text-royal transition-colors">
+          <Link href="/actualites" className="hover:text-royal transition-colors">
             Actualités
-          </a>
+          </Link>
           <span>/</span>
           <span className="text-gray-600">{article.category}</span>
         </div>
