@@ -10,7 +10,7 @@ const allNews = [
     excerpt:
       "La cérémonie d’ouverture a réuni plus de 500 étudiants et professionnels du droit à l’Université Félix Houphouët-Boigny.",
     year: 2026,
-    image: "https://picsum.photos/seed/ohada1/400/400",
+    image: "/images/lancement.jpg",
     category: "Événement",
   },
   {
@@ -19,7 +19,7 @@ const allNews = [
     excerpt:
       "Un panel de haut niveau a exploré les défis et opportunités du droit des affaires harmonisé.",
     year: 2026,
-    image: "https://picsum.photos/seed/ohada2/400/400",
+    image: "/images/logo.jpg",
     category: "Conférence",
   },
   {
@@ -28,7 +28,7 @@ const allNews = [
     excerpt:
       "Plus de 200 étudiants ont participé à cet atelier de mise en situation professionnelle.",
     year: 2026,
-    image: "https://picsum.photos/seed/ohada3/400/400",
+    image: "/images/atelier.jpg",
     category: "Formation",
   },
   {
@@ -37,7 +37,7 @@ const allNews = [
     excerpt:
       "La Semaine OHADA 2026 s’est achevée par une cérémonie solennelle.",
     year: 2026,
-    image: "https://picsum.photos/seed/ohada4/400/400",
+    image: "/images/certificat.jpg",
     category: "Cérémonie",
   },
   {

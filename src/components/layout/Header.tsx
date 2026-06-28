@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Button from "../ui/Button";
 import MobileNav from "./MobileNav";
 
@@ -11,8 +12,7 @@ const navStructure = [
     label: "L’Association",
     href: "/association",
     children: [
-      { label: "Notre mission", href: "/association" },
-      { label: "Bureau National", href: "/association#bureau" },
+      { label: "Bureau National", href: "/association" },
       { label: "Réseau des Clubs", href: "/reseaux" },
     ],
   },
@@ -33,11 +33,16 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-gold/20 shadow-sharp">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+          {/* Logo avec image */}
           <Link href="/" className="flex items-center gap-3 group">
-            <span className="w-9 h-9 bg-gold flex items-center justify-center flex-shrink-0">
-              <span className="font-display font-bold text-white text-lg leading-none">A</span>
-            </span>
+            <Image
+              src="/images/logo.jpg"            // ← votre logo dans public
+              alt="AUPROHADA"
+              width={36}
+              height={36}
+              className="flex-shrink-0"
+              priority
+            />
             <span className="font-display font-bold text-2xl tracking-tight text-premium-dark">
               UPRO<span className="text-royal">HADA</span>
             </span>
