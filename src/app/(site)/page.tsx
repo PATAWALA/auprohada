@@ -1,11 +1,9 @@
+// src/app/(site)/page.tsx
 import Hero from "@/components/sections/Hero";
 import SponsorsCarousel from "@/components/sections/SponsorsCarousel";
-import Histoire from "@/components/sections/Histoire";
+import Histoire from "@/components/sections/Histoire";            // ← Notre Histoire (avec photo à gauche)
 import KeyFigures from "@/components/sections/KeyFigures";
-import PresidentWord from "@/components/sections/PresidentWord";
 import NewsPreview from "@/components/sections/NewsPreview";
-import LibrairieJuridique from "@/components/sections/LibrairieJuridique";
-import Fiertes from "@/components/sections/Fiertes";
 import CTABanner from "@/components/sections/CTABanner";
 
 export default function HomePage() {
@@ -13,12 +11,9 @@ export default function HomePage() {
     <>
       <Hero />
       <SponsorsCarousel />
-      <Histoire />
+      <Histoire />          {/* Section Histoire avec photo fondateur + citation */}
       <KeyFigures />
-      <PresidentWord />
       <NewsPreview />
-      <LibrairieJuridique />
-      <Fiertes />
       <CTABanner />
     </>
   );

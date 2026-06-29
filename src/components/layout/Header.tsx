@@ -1,3 +1,4 @@
+// src/components/layout/Header.tsx
 "use client";
 
 import { useState } from "react";
@@ -44,10 +45,9 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-gold/20 shadow-sharp">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo avec fallback en cas d’absence du fichier */}
+          {/* Logo avec fallback */}
           <Link href="/" className="flex items-center gap-3 group">
             {imgError ? (
-              // Fallback : carré doré avec la lettre A
               <span className="w-9 h-9 bg-gold flex items-center justify-center flex-shrink-0">
                 <span className="font-display font-bold text-white text-lg leading-none">A</span>
               </span>
@@ -112,11 +112,8 @@ export default function Header() {
             )}
           </nav>
 
-          {/* Boutons CTA à droite */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button href="/partenariats" variant="outline" size="sm">
-              Partenariats
-            </Button>
+          {/* CTA unique */}
+          <div className="hidden lg:flex">
             <Button href="/reseaux" variant="gold" size="sm">
               Rejoindre l’AUPROHADA
             </Button>

@@ -65,10 +65,7 @@ export default function MobileNav({ structure, onClose }: MobileNavProps) {
           </Link>
         )
       )}
-      <div className="pt-6 border-t border-gold/20 mt-6 space-y-3">
-        <Button href="/partenariats" variant="outline" className="w-full">
-          Partenariats
-        </Button>
+      <div className="pt-6 border-t border-gold/20 mt-6">
         <Button href="/reseaux" variant="gold" className="w-full">
           Rejoindre l’AUPROHADA
         </Button>
