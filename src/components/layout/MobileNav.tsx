@@ -12,6 +12,7 @@ interface NavItem {
 
 interface MobileNavProps {
   structure: NavItem[];
+  partenariatsChildren: NavItem[];
   onClose: () => void;
 }
 

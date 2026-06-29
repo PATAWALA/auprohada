@@ -1,4 +1,3 @@
-// src/components/layout/Header.tsx
 "use client";
 
 import { useState } from "react";
@@ -7,13 +6,14 @@ import Image from "next/image";
 import Button from "../ui/Button";
 import MobileNav from "./MobileNav";
 
+// Navigation centrale allégée (Partenariats retiré)
 const navStructure = [
   { label: "Accueil", href: "/" },
   {
     label: "L’Association",
     href: "/association",
     children: [
-      { label: "Notre Histoire", href: "/#histoire" },
+      { label: "Notre Histoire", href: "/notre-histoire" },   // ← page dédiée
       { label: "Bureau National", href: "/association" },
       { label: "Réseau des Clubs", href: "/reseaux" },
     ],
@@ -26,15 +26,13 @@ const navStructure = [
       { label: "Événements", href: "/evenements" },
     ],
   },
-  {
-    label: "Partenariats",
-    href: "/partenariats",
-    children: [
-      { label: "Devenir Partenaire", href: "/partenariats" },
-      { label: "Librairie Juridique", href: "/librairie" },
-    ],
-  },
   { label: "Compétitions", href: "/competitions" },
+];
+
+// Sous-liens pour le bouton Partenariats
+const partenariatsChildren = [
+  { label: "Devenir Partenaire", href: "/partenariats" },
+  { label: "Librairie Juridique", href: "/librairie" },
 ];
 
 export default function Header() {
@@ -45,7 +43,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-gold/20 shadow-sharp">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo avec fallback */}
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             {imgError ? (
               <span className="w-9 h-9 bg-gold flex items-center justify-center flex-shrink-0">
@@ -53,7 +51,7 @@ export default function Header() {
               </span>
             ) : (
               <Image
-                src="/logo.jpg"
+                src="/images/logo.jpg"
                 alt="AUPROHADA"
                 width={36}
                 height={36}
@@ -67,7 +65,7 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Navigation desktop */}
+          {/* Navigation desktop (centrale) */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navStructure.map((item) =>
               item.children ? (
@@ -112,8 +110,35 @@ export default function Header() {
             )}
           </nav>
 
-          {/* CTA unique */}
-          <div className="hidden lg:flex">
+          {/* Boutons de droite : Partenariats (dropdown) + Rejoindre */}
+          <div className="hidden lg:flex items-center gap-3">
+            {/* Bouton Partenariats avec dropdown */}
+            <div className="relative group">
+              <button className="inline-flex items-center justify-center font-semibold tracking-wide uppercase transition-all duration-300 border-2 bg-transparent text-royal border-royal hover:bg-royal hover:text-white px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold">
+                Partenariats
+                <svg
+                  className="w-3 h-3 ml-1 transition-transform duration-200 group-hover:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <div className="absolute top-full right-0 w-full h-3 -mt-1" />
+              <div className="absolute top-[calc(100%+4px)] right-0 bg-white border border-gray-100 shadow-sharp py-2 min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 delay-75 z-50">
+                {partenariatsChildren.map((child) => (
+                  <Link
+                    key={child.label}
+                    href={child.href}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:text-royal hover:bg-premium-light transition-colors relative pl-6 before:absolute before:left-2 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-1 before:bg-gold before:opacity-0 hover:before:opacity-100"
+                  >
+                    {child.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <Button href="/reseaux" variant="gold" size="sm">
               Rejoindre l’AUPROHADA
             </Button>
@@ -139,7 +164,11 @@ export default function Header() {
       {/* Menu mobile */}
       {mobileOpen && (
         <div className="lg:hidden border-t border-gold/20">
-          <MobileNav structure={navStructure} onClose={() => setMobileOpen(false)} />
+          <MobileNav
+            structure={navStructure}
+            partenariatsChildren={partenariatsChildren}
+            onClose={() => setMobileOpen(false)}
+          />
         </div>
       )}
     </header>
