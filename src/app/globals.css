@@ -2,6 +2,7 @@
 
 @theme {
   /* Palette institutionnelle */
+  --color-orange: #EA580C; 
   --color-royal: #2563EB;
   --color-royal-50: #EFF6FF;
   --color-royal-100: #DBEAFE;

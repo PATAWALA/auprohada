@@ -1,3 +1,4 @@
+// src/components/layout/MobileNav.tsx
 "use client";
 
 import { useState } from "react";
@@ -8,6 +9,7 @@ interface NavItem {
   label: string;
   href?: string;
   children?: NavItem[];
+  highlight?: boolean;
 }
 
 interface MobileNavProps {
@@ -16,8 +18,9 @@ interface MobileNavProps {
   onClose: () => void;
 }
 
-export default function MobileNav({ structure, onClose }: MobileNavProps) {
+export default function MobileNav({ structure, partenariatsChildren, onClose }: MobileNavProps) {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [partExpanded, setPartExpanded] = useState(false);
 
   return (
     <div className="px-4 py-6 space-y-1 bg-white">
@@ -47,7 +50,9 @@ export default function MobileNav({ structure, onClose }: MobileNavProps) {
                     key={child.label}
                     href={child.href || "#"}
                     onClick={onClose}
-                    className="block text-gray-600 hover:text-royal text-base py-2 pl-4 border-l-2 border-transparent hover:border-gold/50 transition-colors"
+                    className={`block py-2 pl-4 border-l-2 border-transparent hover:border-gold/50 transition-colors ${
+                      child.highlight ? "text-royal font-semibold" : "text-gray-600 hover:text-royal"
+                    }`}
                   >
                     {child.label}
                   </Link>
@@ -66,8 +71,43 @@ export default function MobileNav({ structure, onClose }: MobileNavProps) {
           </Link>
         )
       )}
+
+      {/* Partenariats mobile */}
+      <div>
+        <button
+          onClick={() => setPartExpanded(!partExpanded)}
+          className="flex items-center justify-between w-full text-left text-royal font-medium text-lg py-3 pl-4 border-l-2 border-gold hover:bg-premium-light transition-colors"
+        >
+          Partenariats
+          <svg
+            className={`w-4 h-4 transition-transform duration-200 ${partExpanded ? "rotate-180" : ""}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+        {partExpanded && (
+          <div className="pl-6 mt-1 space-y-1">
+            {partenariatsChildren.map((child) => (
+              <Link
+                key={child.label}
+                href={child.href || "#"}
+                onClick={onClose}
+                className={`block py-2 pl-4 border-l-2 border-transparent hover:border-gold/50 transition-colors ${
+                  child.highlight ? "text-royal font-semibold" : "text-gray-600 hover:text-royal"
+                }`}
+              >
+                {child.label}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+
       <div className="pt-6 border-t border-gold/20 mt-6">
-        <Button href="/reseaux" variant="gold" className="w-full">
+        <Button href="/rejoindre" variant="expansion" className="w-full">
           Rejoindre l’AUPROHADA
         </Button>
       </div>

@@ -1,3 +1,4 @@
+// src/components/layout/Header.tsx
 "use client";
 
 import { useState } from "react";
@@ -6,24 +7,24 @@ import Image from "next/image";
 import Button from "../ui/Button";
 import MobileNav from "./MobileNav";
 
-// Navigation centrale allégée (Partenariats retiré)
 const navStructure = [
   { label: "Accueil", href: "/" },
   {
     label: "L’Association",
     href: "/association",
     children: [
-      { label: "Notre Histoire", href: "/notre-histoire" },   // ← page dédiée
-      { label: "Bureau National", href: "/association" },
-      { label: "Réseau des Clubs", href: "/reseaux" },
+      { label: "Notre Histoire & Vision", href: "/notre-histoire" },
+      { label: "Le Bureau National", href: "/association" },
+      { label: "Les Sections Universitaires", href: "/reseaux" },   // anciennement Réseau des Clubs
+      { label: "Le Réseau Professionnel", href: "/reseau-professionnel" },   // nouveau
     ],
   },
   {
     label: "Actualités",
     href: "/actualites",
     children: [
-      { label: "Actualités", href: "/actualites" },
-      { label: "Événements", href: "/evenements" },
+      { label: "Actualités récentes", href: "/actualites" },
+      { label: "Événements & Webinaires", href: "/evenements" },
     ],
   },
   { label: "Compétitions", href: "/competitions" },
@@ -31,8 +32,8 @@ const navStructure = [
 
 // Sous-liens pour le bouton Partenariats
 const partenariatsChildren = [
-  { label: "Devenir Partenaire", href: "/partenariats" },
-  { label: "Librairie Juridique", href: "/librairie" },
+  { label: "Devenir Partenaire", href: "/partenariats", highlight: true },   // mis en valeur
+  { label: "Boutique OHADA", href: "/librairie" },   // anciennement Librairie Juridique
 ];
 
 export default function Header() {
@@ -51,7 +52,7 @@ export default function Header() {
               </span>
             ) : (
               <Image
-                src="/images/logo.jpg"
+                src="/logo.jpg"
                 alt="AUPROHADA"
                 width={36}
                 height={36}
@@ -65,7 +66,7 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Navigation desktop (centrale) */}
+          {/* Navigation centrale */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navStructure.map((item) =>
               item.children ? (
@@ -85,7 +86,7 @@ export default function Header() {
                     </svg>
                   </Link>
                   <div className="absolute top-full left-0 w-full h-3 -mt-1" />
-                  <div className="absolute top-[calc(100%+4px)] left-0 bg-white border border-gray-100 shadow-sharp py-2 min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 delay-75 z-50">
+                  <div className="absolute top-[calc(100%+4px)] left-0 bg-white border border-gray-100 shadow-sharp py-2 min-w-[250px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 delay-75 z-50">
                     {item.children.map((child) => (
                       <Link
                         key={child.label}
@@ -110,7 +111,7 @@ export default function Header() {
             )}
           </nav>
 
-          {/* Boutons de droite : Partenariats (dropdown) + Rejoindre */}
+          {/* Boutons de droite : Partenariats (dropdown) + Rejoindre (orange) */}
           <div className="hidden lg:flex items-center gap-3">
             {/* Bouton Partenariats avec dropdown */}
             <div className="relative group">
@@ -131,7 +132,11 @@ export default function Header() {
                   <Link
                     key={child.label}
                     href={child.href}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:text-royal hover:bg-premium-light transition-colors relative pl-6 before:absolute before:left-2 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-1 before:bg-gold before:opacity-0 hover:before:opacity-100"
+                    className={`block px-4 py-2 text-sm transition-colors relative pl-6 before:absolute before:left-2 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-1 before:bg-gold before:opacity-0 hover:before:opacity-100 ${
+                      child.highlight
+                        ? "text-royal font-semibold hover:text-royal-700"
+                        : "text-gray-700 hover:text-royal hover:bg-premium-light"
+                    }`}
                   >
                     {child.label}
                   </Link>
@@ -139,7 +144,8 @@ export default function Header() {
               </div>
             </div>
 
-            <Button href="/reseaux" variant="gold" size="sm">
+            {/* Bouton Rejoindre l'AUPROHADA – ORANGE pour l'expansion */}
+            <Button href="/rejoindre" variant="expansion" size="sm">
               Rejoindre l’AUPROHADA
             </Button>
           </div>

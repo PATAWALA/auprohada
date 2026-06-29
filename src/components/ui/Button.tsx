@@ -1,7 +1,7 @@
 import React from "react";
 
 interface ButtonBaseProps {
-  variant?: "primary" | "gold" | "outline" | "whiteOutline" | "white" | "royal";
+  variant?: "primary" | "gold" | "outline" | "whiteOutline" | "white" | "royal"| "expansion";
   size?: "sm" | "md" | "lg";
 }
 
@@ -40,6 +40,8 @@ export default function Button(props: ButtonProps) {
       "bg-white text-royal border-white hover:bg-premium-light hover:border-premium-light hover:translate-y-[-2px]",
     royal:   // ← Ajouté
       "bg-royal text-white border-royal hover:bg-royal-700 hover:border-royal-700 hover:translate-y-[-2px]",
+    expansion:
+      "bg-orange-600 text-white border-orange-600 hover:bg-orange-700 hover:border-orange-700 hover:translate-y-[-2px]",
   };
 
   const sizes = {
