@@ -9,7 +9,7 @@ const ouvrages = [
     id: 1,
     titre: "Code OHADA commenté",
     couverture:
-      "https://images.unsplash.com/photo-1589998059171-988d31f1f0d1?auto=format&fit=crop&w=300&h=400&q=80",
+      "/images/editorial-2.jpg",
     partenaire: "Cabinet CIC",
   },
   {
