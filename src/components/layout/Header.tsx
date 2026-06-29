@@ -18,7 +18,7 @@ const navStructure = [
     ],
   },
   {
-    label: "Actualités & Événements",
+    label: "Actualités",   // ← plus court
     href: "/actualites",
     children: [
       { label: "Actualités", href: "/actualites" },
@@ -43,7 +43,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-gold/20 shadow-sharp">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo + slogan institutionnel */}
+          {/* Logo seul, sans slogan */}
           <Link href="/" className="flex items-center gap-3 group">
             <Image
               src="/logo.jpg"
@@ -55,11 +55,6 @@ export default function Header() {
             />
             <span className="font-display font-bold text-2xl tracking-tight text-premium-dark">
               UPRO<span className="text-royal">HADA</span>
-            </span>
-            {/* Slogan séparé par une fine ligne dorée */}
-            <span className="hidden md:block w-px h-8 bg-gold/40 mx-2" />
-            <span className="hidden md:block text-xs text-gray-500 uppercase tracking-widest leading-tight max-w-[120px]">
-              L’excellence du droit des affaires
             </span>
           </Link>
 
