@@ -1,17 +1,14 @@
 import React from "react";
 
-// Props de base communes
 interface ButtonBaseProps {
-  variant?: "primary" | "gold" | "outline" | "whiteOutline" | "white";
+  variant?: "primary" | "gold" | "outline" | "whiteOutline" | "white" | "royal";
   size?: "sm" | "md" | "lg";
 }
 
-// Props pour un bouton
 interface ButtonAsButton extends ButtonBaseProps, React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: undefined;
 }
 
-// Props pour un lien
 interface ButtonAsLink extends ButtonBaseProps, React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
 }
@@ -29,6 +26,7 @@ export default function Button(props: ButtonProps) {
 
   const base =
     "inline-flex items-center justify-center font-semibold tracking-wide uppercase transition-all duration-300 border-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold";
+
   const variants = {
     primary:
       "bg-royal text-white border-royal hover:bg-royal-700 hover:border-royal-700 hover:translate-y-[-2px]",
@@ -40,15 +38,18 @@ export default function Button(props: ButtonProps) {
       "bg-transparent text-white border-white hover:bg-white hover:text-royal hover:border-white hover:translate-y-[-2px]",
     white:
       "bg-white text-royal border-white hover:bg-premium-light hover:border-premium-light hover:translate-y-[-2px]",
+    royal:   // ← Ajouté
+      "bg-royal text-white border-royal hover:bg-royal-700 hover:border-royal-700 hover:translate-y-[-2px]",
   };
+
   const sizes = {
     sm: "px-4 py-2 text-sm",
     md: "px-6 py-3 text-base",
     lg: "px-8 py-4 text-lg",
   };
+
   const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
 
-  // Si href est présent, on rend un lien
   if (rest.href) {
     const { href, ...anchorProps } = rest as ButtonAsLink;
     return (
@@ -58,7 +59,6 @@ export default function Button(props: ButtonProps) {
     );
   }
 
-  // Sinon un bouton
   const buttonProps = rest as ButtonAsButton;
   return (
     <button className={classes} {...buttonProps}>

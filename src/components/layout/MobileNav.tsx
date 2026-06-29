@@ -65,13 +65,12 @@ export default function MobileNav({ structure, onClose }: MobileNavProps) {
           </Link>
         )
       )}
-      {/* Boutons CTA */}
       <div className="pt-6 border-t border-gold/20 mt-6 space-y-3">
         <Button href="/partenariats" variant="outline" className="w-full">
           Partenariats
         </Button>
         <Button href="/reseaux" variant="gold" className="w-full">
-          Rejoindre
+          Rejoindre l’AUPROHADA
         </Button>
       </div>
     </div>
