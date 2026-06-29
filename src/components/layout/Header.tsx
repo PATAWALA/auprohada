@@ -12,16 +12,25 @@ const navStructure = [
     label: "L’Association",
     href: "/association",
     children: [
+      { label: "Notre Histoire", href: "/#histoire" },
       { label: "Bureau National", href: "/association" },
       { label: "Réseau des Clubs", href: "/reseaux" },
     ],
   },
   {
-    label: "Activités",
+    label: "Actualités & Événements",
     href: "/actualites",
     children: [
       { label: "Actualités", href: "/actualites" },
       { label: "Événements", href: "/evenements" },
+    ],
+  },
+  {
+    label: "Partenariats",
+    href: "/partenariats",
+    children: [
+      { label: "Devenir Partenaire", href: "/partenariats" },
+      { label: "Librairie Juridique", href: "/#librairie" },
     ],
   },
 ];
@@ -33,10 +42,10 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-gold/20 shadow-sharp">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo avec image */}
+          {/* Logo + slogan */}
           <Link href="/" className="flex items-center gap-3 group">
             <Image
-              src="/images/logo.jpg"            // ← votre logo dans public
+              src="/logo.jpg"
               alt="AUPROHADA"
               width={36}
               height={36}
@@ -46,10 +55,15 @@ export default function Header() {
             <span className="font-display font-bold text-2xl tracking-tight text-premium-dark">
               UPRO<span className="text-royal">HADA</span>
             </span>
+            {/* Fine ligne verticale dorée */}
+            <span className="hidden sm:block w-px h-8 bg-gold/40 mx-2" />
+            <span className="hidden sm:block text-xs text-gray-500 uppercase tracking-widest leading-tight max-w-[120px]">
+              L’excellence du droit des affaires
+            </span>
           </Link>
 
           {/* Navigation desktop */}
-          <nav className="hidden lg:flex items-center space-x-10">
+          <nav className="hidden lg:flex items-center space-x-8">
             {navStructure.map((item) =>
               item.children ? (
                 <div key={item.label} className="relative group">
@@ -67,12 +81,8 @@ export default function Header() {
                       <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M6 9l6 6 6-6" />
                     </svg>
                   </Link>
-
-                  {/* Pont invisible */}
                   <div className="absolute top-full left-0 w-full h-3 -mt-1" />
-
-                  {/* Dropdown */}
-                  <div className="absolute top-[calc(100%+4px)] left-0 bg-white border border-gray-100 shadow-sharp py-2 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 delay-75 z-50">
+                  <div className="absolute top-[calc(100%+4px)] left-0 bg-white border border-gray-100 shadow-sharp py-2 min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 delay-75 z-50">
                     {item.children.map((child) => (
                       <Link
                         key={child.label}
@@ -97,13 +107,10 @@ export default function Header() {
             )}
           </nav>
 
-          {/* Boutons CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button href="/partenariats" variant="outline" size="sm">
-              Partenariats
-            </Button>
+          {/* CTA */}
+          <div className="hidden lg:flex">
             <Button href="/reseaux" variant="gold" size="sm">
-              Rejoindre
+              Rejoindre l’AUPROHADA
             </Button>
           </div>
 
@@ -124,7 +131,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Menu mobile */}
       {mobileOpen && (
         <div className="lg:hidden border-t border-gold/20">
           <MobileNav structure={navStructure} onClose={() => setMobileOpen(false)} />
