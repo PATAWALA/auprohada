@@ -18,7 +18,7 @@ const navStructure = [
     ],
   },
   {
-    label: "Actualités",   // ← plus court
+    label: "Actualités",
     href: "/actualites",
     children: [
       { label: "Actualités", href: "/actualites" },
@@ -38,21 +38,30 @@ const navStructure = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gold/20 shadow-sharp">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo seul, sans slogan */}
+          {/* Logo avec fallback en cas d’absence du fichier */}
           <Link href="/" className="flex items-center gap-3 group">
-            <Image
-              src="/logo.jpg"
-              alt="AUPROHADA"
-              width={36}
-              height={36}
-              className="flex-shrink-0"
-              priority
-            />
+            {imgError ? (
+              // Fallback : carré doré avec la lettre A
+              <span className="w-9 h-9 bg-gold flex items-center justify-center flex-shrink-0">
+                <span className="font-display font-bold text-white text-lg leading-none">A</span>
+              </span>
+            ) : (
+              <Image
+                src="/logo.jpg"
+                alt="AUPROHADA"
+                width={36}
+                height={36}
+                className="flex-shrink-0"
+                priority
+                onError={() => setImgError(true)}
+              />
+            )}
             <span className="font-display font-bold text-2xl tracking-tight text-premium-dark">
               UPRO<span className="text-royal">HADA</span>
             </span>
@@ -77,9 +86,7 @@ export default function Header() {
                       <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M6 9l6 6 6-6" />
                     </svg>
                   </Link>
-                  {/* Pont invisible */}
                   <div className="absolute top-full left-0 w-full h-3 -mt-1" />
-                  {/* Dropdown */}
                   <div className="absolute top-[calc(100%+4px)] left-0 bg-white border border-gray-100 shadow-sharp py-2 min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 delay-75 z-50">
                     {item.children.map((child) => (
                       <Link
@@ -105,8 +112,11 @@ export default function Header() {
             )}
           </nav>
 
-          {/* CTA droit */}
-          <div className="hidden lg:flex">
+          {/* Boutons CTA à droite */}
+          <div className="hidden lg:flex items-center gap-3">
+            <Button href="/partenariats" variant="outline" size="sm">
+              Partenariats
+            </Button>
             <Button href="/reseaux" variant="gold" size="sm">
               Rejoindre l’AUPROHADA
             </Button>
