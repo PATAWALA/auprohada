@@ -107,7 +107,7 @@ export default function MobileNav({ structure, partenariatsChildren, onClose }: 
       </div>
 
       <div className="pt-6 border-t border-gold/20 mt-6">
-        <Button href="/rejoindre" variant="expansion" className="w-full">
+        <Button href="/rejoindre" variant="gold" className="w-full">
           Rejoindre l’AUPROHADA
         </Button>
       </div>

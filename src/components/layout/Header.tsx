@@ -145,7 +145,7 @@ export default function Header() {
             </div>
 
             {/* Bouton Rejoindre l'AUPROHADA – ORANGE pour l'expansion */}
-            <Button href="/rejoindre" variant="expansion" size="sm">
+            <Button href="/rejoindre" variant="gold" size="sm">
               Rejoindre l’AUPROHADA
             </Button>
           </div>
