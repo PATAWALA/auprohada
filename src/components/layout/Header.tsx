@@ -52,7 +52,7 @@ export default function Header() {
               </span>
             ) : (
               <Image
-                src="/logo.jpg"
+                src="/images/logo.jpg"
                 alt="AUPROHADA"
                 width={36}
                 height={36}
